@@ -1,0 +1,22 @@
+{
+  "name": "HMInputBarAccessoryView",
+  "version": "0.1.0",
+  "summary": "A short description of HMInputBarAccessoryView.",
+  "description": "TODO: Add long description of the pod here.",
+  "homepage": "https://github.com/xuyanling/HMInputBarAccessoryView",
+  "license": {
+    "type": "MIT",
+    "file": "LICENSE"
+  },
+  "authors": {
+    "xuyanling": "xuyanling@huami.com"
+  },
+  "source": {
+    "git": "https://github.com/xuyanling/HMInputBarAccessoryView.git",
+    "tag": "0.1.0"
+  },
+  "platforms": {
+    "ios": "9.0"
+  },
+  "source_files": "HMInputBarAccessoryView/Classes/**/*"
+}
