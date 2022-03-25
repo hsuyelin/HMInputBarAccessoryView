@@ -97,6 +97,12 @@ open class AutocompleteManager: NSObject, InputPlugin, UITextViewDelegate, UITab
     /// Default value is `TRUE`
     open var deleteCompletionByParts = true
     
+    /// When enable, autocomplete completions will be deleted character by character.
+    /// This meands when using the backspace key to delete, the deletion will be done character by character
+    ///
+    /// Default value is `FALSE`
+    open var deleteCompletionByCharacter = false
+    
     /// The default text attributes
     open var defaultTextAttributes: [NSAttributedString.Key: Any] = {
         var foregroundColor: UIColor
@@ -433,6 +439,9 @@ open class AutocompleteManager: NSObject, InputPlugin, UITextViewDelegate, UITab
         // range == selectedRange: User selected a chunk to delete
         if range.length > 0, range.location < selectedRange.location {
             
+            // Backspace/removing text character by character
+            if deleteCompletionByCharacter { return true }
+            
             // Backspace/removing text
             let attributes = textView.attributedText.attributes(at: range.location, longestEffectiveRange: nil, in: range)
             let isAutocompleted = attributes[.autocompleted] as? Bool ?? false
@@ -467,6 +476,9 @@ open class AutocompleteManager: NSObject, InputPlugin, UITextViewDelegate, UITab
             
             // Inserting text before a tag when the tag is at the start of the string
             guard range.location != 0 else { return true }
+            
+            // Backspace/removing text character by character
+            if deleteCompletionByCharacter { return true }
 
             // Inserting text in the middle of an autocompleted string
             let attributes = textView.attributedText.attributes(at: range.location-1, longestEffectiveRange: nil, in: NSMakeRange(range.location-1, range.length))
