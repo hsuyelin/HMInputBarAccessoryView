@@ -33,9 +33,9 @@ public struct AutocompleteCompletion {
     public let text: String
     
     // The context of the completion that you may need later when completed
-    public let context: [String: Any]?
+    public let context: [String: AnyHashable]?
     
-    public init(text: String, context: [String: Any]? = nil) {
+    public init(text: String, context: [String: AnyHashable]? = nil) {
         self.text = text
         self.context = context
     }
