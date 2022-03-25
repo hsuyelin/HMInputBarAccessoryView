@@ -7,7 +7,7 @@ Pod::Spec.new do |s|
   s.homepage = "https://github.com/hsuyelin/HMInputBarAccessoryView"
   s.author = { "hsuyelin" => "hsuyelin@163.com" }
 
-  s.source = { :git => "https://github.com/hsuyelin/HMInputBarAccessoryView", :tag => s.version }
+  s.source = { :git => "https://github.com/hsuyelin/HMInputBarAccessoryView.git", :tag => s.version }
   s.source_files = "Sources/**/*.swift"
 
   s.swift_version = "5.0"
